@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>معاذ ستور | Moaz Store</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <!-- Supabase JS Library -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+
+  <!-- Glowing Animated Background Spheres -->
+  <div class="bg-animation">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+  </div>
+
+  <div class="container">
+    <!-- Header -->
+    <header class="header">
+      <div class="logo">
+        <i class="fa-solid fa-store"></i>
+        <h1>معاذ ستور</h1>
+      </div>
+      <p class="subtitle">متجرك المفضل لأفضل تطبيقات وألعاب الويب</p>
+    </header>
+
+    <!-- Stats Bar -->
+    <div class="stats-bar">
+      <div class="stat-item">
+        <i class="fa-solid fa-layer-group"></i>
+        <span>إجمالي التطبيقات: <strong id="totalAppsCount">0</strong></span>
+      </div>
+      <div class="stat-item">
+        <i class="fa-solid fa-heart"></i>
+        <span>المفضلة: <strong id="favAppsCount">0</strong></span>
+      </div>
+    </div>
+
+    <!-- Controls: Search, Category Filter & Tabs -->
+    <div class="controls">
+      <div class="search-box">
+        <i class="fa-solid fa-magnifying-glass search-icon"></i>
+        <input type="text" id="searchInput" placeholder="ابحث عن تطبيق أو لعبة...">
+      </div>
+
+      <div class="filter-row">
+        <!-- فلتر الفئات -->
+        <select id="categorySelect" class="category-select" onchange="renderApps()">
+          <option value="all">كل التصنيفات</option>
+          <option value="تطبيقات">تطبيقات</option>
+          <option value="ألعاب">ألعاب</option>
+          <option value="أدوات">أدوات</option>
+          <option value="تسلية">تسلية</option>
+        </select>
+
+        <div class="tabs">
+          <button class="tab-btn active" id="tabAll" onclick="switchTab('all')">
+            <i class="fa-solid fa-border-all"></i> الكل
+          </button>
+          <button class="tab-btn" id="tabFav" onclick="switchTab('fav')">
+            <i class="fa-solid fa-heart"></i> المفضلة (<span id="favCount">0</span>)
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- App Cards Grid -->
+    <main class="apps-grid" id="appsGrid">
+      <!-- Generated Dynamically via JS / Supabase -->
+    </main>
+
+    <!-- Loading State -->
+    <div class="loading-state" id="loadingState" style="display: none;">
+      <i class="fa-solid fa-spinner fa-spin"></i>
+      <p>جاري تحميل التطبيقات من قاعدة البيانات...</p>
+    </div>
+
+    <!-- Empty State Message -->
+    <div class="empty-state" id="emptyState" style="display: none;">
+      <i class="fa-solid fa-ghost"></i>
+      <p id="emptyText">لا توجد تطبيقات متوفرة حالياً!</p>
+    </div>
+
+    <!-- Footer Developer Badge -->
+    <footer class="footer">
+      <div class="developer-badge">
+        <span class="pulse-dot"></span>
+        <span>تم البرمجة بواسطة المبرمج <strong>معاذ محمد عبد النبي</strong></span>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Toast Notification -->
+  <div class="toast" id="toast">تم نسخ الرابط بنجاح!</div>
+
+  <script src="script.js"></script>
+</body>
+</html>
